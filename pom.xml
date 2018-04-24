@@ -1124,9 +1124,11 @@
                     <value>!true</value>
                 </property>
             </activation>
+<!--
             <modules>
                 <module>documentation</module>
             </modules>
+-->
         </profile>
         <profile>
             <id>dist</id>
