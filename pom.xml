@@ -1168,6 +1168,7 @@
             </properties>
             <build>
 		<plugins>
+<!--
 			<plugin>
 				<groupId>com.amashchenko.maven.plugin</groupId>
 				<artifactId>gitflow-maven-plugin</artifactId>
@@ -1178,18 +1179,38 @@
 					</gitFlowConfig>
 				</configuration>
 			</plugin>
-
+-->
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+				<configuration>
+					<flowInitContext>
+						<masterBranchName>static-6.0.9-master</masterBranchName>
+						<developBranchName>static-6.0.9-develop</developBranchName>
+					</flowInitContext>
+				</configuration>
+			</plugin>
 		</plugins>
 	
                 <pluginManagement>
                     <plugins>
 
 			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+				<configuration>
+					<!-- see goals wiki page for configuration options -->
+				</configuration>
+			</plugin>
+<!--
+			<plugin>
 				<groupId>com.amashchenko.maven.plugin</groupId>
 				<artifactId>gitflow-maven-plugin</artifactId>
 				<version>1.9.0</version>
 			</plugin>
-
+-->
                         <plugin>
                             <artifactId>maven-compiler-plugin</artifactId>
                             <configuration>
