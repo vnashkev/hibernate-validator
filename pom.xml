@@ -10,7 +10,7 @@
 
     <groupId>org.hibernate.validator</groupId>
     <artifactId>hibernate-validator-parent</artifactId>
-    <version>6.0.9.Final</version>
+    <version>6.0.9.Final.static.1</version>
     <packaging>pom</packaging>
 
     <name>Hibernate Validator Aggregator</name>
@@ -86,6 +86,7 @@
         <module>test-utils</module>
         <module>build-config</module>
         <module>engine</module>
+<!--
         <module>cdi</module>
         <module>modules</module>
         <module>tck-runner</module>
@@ -93,6 +94,7 @@
         <module>integration</module>
         <module>performance</module>
         <module>osgi</module>
+-->
     </modules>
 
     <properties>
@@ -1100,9 +1102,11 @@
                     <value>!true</value>
                 </property>
             </activation>
+<!--
             <modules>
                 <module>distribution</module>
             </modules>
+-->
         </profile>
         <profile>
             <id>relocation</id>
@@ -1163,8 +1167,29 @@
                 </arquillian.javaVmArguments.add-opens>
             </properties>
             <build>
+		<plugins>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<configuration>
+					<gitFlowConfig>
+						<productionBranch>static-6.0.9-master</productionBranch>
+						<developmentBranch>static-6.0.9-develop</developmentBranch>
+					</gitFlowConfig>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	
                 <pluginManagement>
                     <plugins>
+
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.9.0</version>
+			</plugin>
+
                         <plugin>
                             <artifactId>maven-compiler-plugin</artifactId>
                             <configuration>
